@@ -1,0 +1,35 @@
+Pulse demonstration validation
+Date: 2026-11-12 Asia/Shanghai
+
+Backend: python -m unittest discover -s tests -p "test_*.py" -v
+Result: 8 tests passed (0.549 s)
+Scope: input validation, timezone normalization, rule boundaries/gaps,
+retrieval, mocked DeepSeek success/failure, actual HTTP API calls,
+SQLite persistence and duplicate handling, cross-origin rejection.
+
+Frontend: node tests/test_logic.cjs
+Result: PASS
+Scope: 100-bpm edge, missing samples/time gaps, ordering, duplicates,
+invalid/non-finite values, retrieval and no-match handling.
+
+Syntax: node --check docs/app.js
+Result: PASS
+
+Browser local end-to-end validation:
+- HTTP publisher posted 12 elevated synthetic records: 201 on each.
+- Dashboard read SQLite: latest 121, average 101, count 12; alert triggered.
+- Assistant returned source-linked retrieval; labelled no DeepSeek call.
+- CSV download opened: 12 rows, latest 121, sqlite_synthetic source.
+- Enabled 5-second polling, streamed 12 additional normal readings.
+- Dashboard automatically updated to count 24, latest 78, alert cleared.
+- At 390-pixel viewport: document scrollWidth 375 <= viewport width 390.
+- Viewport override reset after responsive check.
+
+Cloud: external legacy GET /dev/demo returned HTTP 500.
+Authenticated Academy course 170264: course has ended and cannot be accessed.
+Cloud restoration is not claimed; new active Lab required.
+
+Unverified by design: physical sensors, clinical accuracy, actual DeepSeek responses.
+DeepSeek adapter tests used an injected mock response, not a paid API call.
+
+Public release browser verification is recorded with the release artifact.

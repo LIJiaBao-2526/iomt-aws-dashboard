@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+const {normalize,triggered,retrieve}=require('../docs/logic.js');
+const kb=require('../docs/knowledge.json');
+const rows=[101,110,120].map((v,i)=>({heart_rate:v,timestamp:`2026-11-12T01:0${i}:00Z`}));
+assert.equal(triggered(normalize(rows)),true);
+assert.equal(triggered(normalize(rows.map((r,i)=>({...r,heart_rate:i===1?100:r.heart_rate})))),false);
+assert.equal(triggered(normalize([rows[0],rows[1],{...rows[2],timestamp:'2026-11-12T01:10:00Z'}])),false);
+assert.equal(triggered([]),false);
+assert.equal(normalize([...rows].reverse())[0].heart_rate,101);
+assert.throws(()=>normalize([rows[0],rows[0]]));
+for(const value of [NaN,Infinity,true,'78',19,251])assert.throws(()=>normalize([{...rows[0],heart_rate:value}]));
+assert.throws(()=>normalize([{...rows[0],timestamp:'2026-01-01'}]));
+assert.equal(retrieve('AWS 系統',kb)[0].id,'system');
+assert.deepEqual(retrieve('quantum pineapple',kb),[]);
+console.log('PASS: frontend rule boundaries, gaps, normalization, duplicate rejection, invalid input and retrieval');
