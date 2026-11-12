@@ -33,17 +33,6 @@ Set `DEEPSEEK_API_KEY` in the server's environment before starting it; never pas
 
 No real DeepSeek call or physical sensor is claimed as tested. Mock tests verify adapter behavior only. The user selected a synthetic demonstration version without hardware/key.
 
-## Team allocation
-
-Allocated responsibility, not a fabricated historical authorship record. Members must confirm actual contributions.
-
-| Member | Share | Modules | Live presentation |
-|---|---:|---|---|
-| CHAN Ka Ming | 25% | `tools/simulator.py`, `HARDWARE.md` | Publish synthetic device readings |
-| LI Jia Bao | 25% | API, SQLite, validation, AWS deployment | Show ingestion and storage |
-| LEE Tsz Him | 25% | `docs/index.html`, `app.js`, `style.css` | Graph, refresh, CSV and Pages |
-| KWOK Chun Ting | 25% | Knowledge, assistant, `logic.js`, tests, report | Explain sources, rules and tests |
-
 ## Tests
 
 ```powershell
@@ -68,12 +57,10 @@ Public endpoint: `https://rl6z5doxlg.execute-api.us-east-1.amazonaws.com/dev/dem
 
 On 2026-11-12, authenticated Academy access confirmed that course 170264 had ended. The legacy AWS endpoint returned HTTP 500. A new active Lab is required for cloud restoration. The public page therefore starts in explicitly labelled browser-synthetic mode.
 
-## Verified virtual ESP32 route and team rehearsal
+## Verified virtual ESP32 route
 
 Wokwi: https://wokwi.com/projects/480447773460293633
 
-Team operation scripts: https://lijiabao-2526.github.io/iomt-aws-dashboard/rehearsal.html
-
 Run the local server, then `python tools/mqtt_bridge.py`. Start the Wokwi project and enable database refresh on the local dashboard. Click the knob and use End for 150 bpm or Home for 50 bpm. The real virtual-board-to-MQTT-to-HTTP-to-SQLite flow was verified, including 75 to 150 bpm and the elevated rule. No physical measurements are claimed. The public Pages site does not read local SQLite.
 
-Windows shortcuts on this computer: Start_Local_Server.cmd, Start_MQTT_Bridge.cmd, Run_Tests.cmd. They use the installed Codex Python runtime, falling back to the Python launcher on other computers. No pip dependencies are needed. See wokwi/README.md and docs/rehearsal.html for detailed operation. Only one Wokwi simulator instance should run at a time.
+Windows shortcuts on this computer: Start_Local_Server.cmd, Start_MQTT_Bridge.cmd, Run_Tests.cmd. They use the installed Codex Python runtime, falling back to the Python launcher on other computers. No pip dependencies are needed. See wokwi/README.md for detailed operation. Only one Wokwi simulator instance should run at a time.

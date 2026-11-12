@@ -1,4 +1,4 @@
-/* Assigned owner: LEE Tsz Him. Dashboard and presentation controls. */
+/* Dashboard and presentation controls. */
 const LOCAL=['127.0.0.1','localhost'].includes(location.hostname)&&location.port==='8877';
 const API=LOCAL?'/api/demo':'https://rl6z5doxlg.execute-api.us-east-1.amazonaws.com/dev/demo';
 const $=id=>document.getElementById(id);let readings=[],mode='cloud',busy=false;

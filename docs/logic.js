@@ -1,4 +1,4 @@
-/* Assigned owner: KWOK Chun Ting. Pure, testable demonstration rules and retrieval. */
+/* Pure, testable demonstration rules and retrieval. */
 (function(root){
 function normalize(rows){
  if(!Array.isArray(rows)||rows.length>500)throw Error('Invalid series');
