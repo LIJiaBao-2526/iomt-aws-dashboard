@@ -9,3 +9,7 @@ The local receiver accepts only that reserved demonstration device. Identical re
 To add hardware later, confirm exact board and sensor first. A separate authenticated TLS gateway, signal-quality checks, clock synchronization, retries and data isolation are required. Do not embed AWS or DeepSeek keys in firmware. Do not label real health data as synthetic to bypass this prototype's restrictions.
 
 Hardware acceptance requires a circuit, successfully compiled firmware, observed readings, reference-device comparison, missing-signal tests and a repeatable upload test. These physical checks are outside the selected demonstration version and have not been claimed.
+
+## Virtual-board implementation update
+
+Wokwi now executes the ESP32 MicroPython program in wokwi/main.py with the wiring in diagram.json. The verified path is potentiometer ADC → synthetic 50–150 BPM → MQTT QoS 0 → tools/mqtt_bridge.py → local HTTP API → SQLite → dashboard. No public ingress or tunnel was added to this computer. The existing local HTTP publisher remains a fallback. Source: https://docs.wokwi.com/guides/esp32-wifi .

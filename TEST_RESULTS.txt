@@ -2,7 +2,7 @@ Pulse demonstration validation
 Date: 2026-11-12 Asia/Shanghai
 
 Backend: python -m unittest discover -s tests -p "test_*.py" -v
-Result: 8 tests passed (0.549 s)
+Result: 11 tests passed (0.563 s)
 Scope: input validation, timezone normalization, rule boundaries/gaps,
 retrieval, mocked DeepSeek success/failure, actual HTTP API calls,
 SQLite persistence and duplicate handling, cross-origin rejection.
@@ -33,3 +33,14 @@ Unverified by design: physical sensors, clinical accuracy, actual DeepSeek respo
 DeepSeek adapter tests used an injected mock response, not a paid API call.
 
 Public release browser verification is recorded with the release artifact.
+
+Virtual ESP32 extension validation 2026-11-12:
+- Backend and MQTT tests: 11 tests passed in 0.563 seconds.
+- Fragmented MQTT frame parsing, oversize rejection and synthetic bounds tested.
+- Wokwi MicroPython firmware actually ran; WiFi and MQTT connected.
+- Virtual knob initial 256 produced 75 bpm in serial and SQLite.
+- Knob End produced 150 bpm in serial and SQLite.
+- Local dashboard with polling showed 150 bpm and triggered rule notice.
+- MQTT bridge timestamps receipt; public broker only carries synthetic data.
+
+- Knob Home then produced 50 bpm; local dashboard rule cleared after updates.
